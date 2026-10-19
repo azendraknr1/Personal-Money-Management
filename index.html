@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catatan Keuangan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="halaman">
+    <header>
+      <h1>Catatan Keuangan</h1>
+      <p>Catat pemasukan dan pengeluaranmu</p>
+    </header>
+
+    <section class="ringkasan" aria-label="Ringkasan">
+      <div class="kartu">
+        <span class="label">Saldo</span>
+        <strong id="saldo">Rp 0</strong>
+      </div>
+      <div class="kartu">
+        <span class="label">Pemasukan</span>
+        <strong id="total-masuk" class="masuk">Rp 0</strong>
+      </div>
+      <div class="kartu">
+        <span class="label">Pengeluaran</span>
+        <strong id="total-keluar" class="keluar">Rp 0</strong>
+      </div>
+    </section>
+
+    <div class="isi">
+      <section class="panel">
+        <h2>Tambah transaksi</h2>
+        <form id="form-transaksi" novalidate>
+          <label for="nama">Keterangan</label>
+          <input type="text" id="nama" placeholder="Contoh: Makan siang" maxlength="40">
+
+          <label for="jumlah">Jumlah (Rp)</label>
+          <input type="text" id="jumlah" inputmode="numeric" placeholder="Contoh: 15000">
+          
+          <label for="tipe">Jenis</label>
+          <select id="tipe">
+            <option value="keluar">Pengeluaran</option>
+            <option value="masuk">Pemasukan</option>
+          </select>
+
+          <label for="kategori">Kategori</label>
+          <select id="kategori">
+            <option>Makanan</option>
+            <option>Transport</option>
+            <option>Belanja</option>
+            <option>Tagihan</option>
+            <option>Gaji</option>
+            <option>Lainnya</option>
+          </select>
+
+          <p id="pesan" role="alert"></p>
+          <button type="submit" class="tombol">Simpan</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="bar-judul">
+          <h2>Riwayat</h2>
+          <select id="filter" aria-label="Filter jenis transaksi">
+            <option value="semua">Semua</option>
+            <option value="masuk">Pemasukan</option>
+            <option value="keluar">Pengeluaran</option>
+          </select>
+        </div>
+        <ul id="daftar" class="daftar"></ul>
+        <p id="kosong" class="kosong">Belum ada transaksi. Isi form di samping untuk mulai mencatat.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
